@@ -8,6 +8,9 @@ from time import sleep
 ULINE = '\033[4m'
 PLAIN = '\033[0m'
 
+def uline(string):
+    return ULINE + string + PLAIN
+
 def bndm(txt, pat, verbose=False):
     n = len(txt)
     m = len(pat)
@@ -32,7 +35,7 @@ def bndm(txt, pat, verbose=False):
                 matchstr[np.array(list(format(state,'0'+str(m)+'b')))=='1'] = txt[j]
                 print(' '*i + pat)
                 print(' '*i + ''.join(matchstr))
-                print(txt[:j] + ULINE + txt[j:i+m] + PLAIN + txt[i+m:])
+                print(txt[:j] + uline(txt[j:i+m]) + txt[i+m:])
                 sleep(1)
             state <<= 1
             if state >> m:
@@ -40,9 +43,9 @@ def bndm(txt, pat, verbose=False):
             j -= 1
 
         if verbose:
-            print(' '*shift_to + ULINE + pat[:i+m-shift_to] + PLAIN + pat[i+m-shift_to:])
+            print(' '*shift_to + uline(pat[:i+m-shift_to]) + pat[i+m-shift_to:])
             print()
-            print(txt[:shift_to] + ULINE + txt[shift_to:i+m] + PLAIN + txt[i+m:])
+            print(txt[:shift_to] + uline(txt[shift_to:i+m]) + txt[i+m:])
             sleep(1)
         i = shift_to
     return ''
