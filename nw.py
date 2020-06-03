@@ -5,18 +5,20 @@ from time import time_ns as time
 # https://tiefenauer.github.io/blog/smith-waterman/
 def matrix(a, b, match_score=1, gap_cost=1):
     H = np.zeros((len(a) + 1, len(b) + 1), np.int)
+    H[0,:] = [-gap_cost*j for j in range(len(b)+1)]
+    H[:,0] = 0
 
     for i, j in itertools.product(range(1, len(a)+1), range(1, len(b)+1)):
-        match = H[i - 1, j - 1] + (match_score if a[i - 1] == b[j - 1] else - match_score)
+        match = H[i - 1, j - 1] - (0 if a[i - 1] == b[j - 1] else match_score)
         delete = H[i - 1, j] - gap_cost
         insert = H[i, j - 1] - gap_cost
-        H[i, j] = max(match, delete, insert, 0)
+        H[i, j] = max(match, delete, insert)
     return H
 
 # https://gist.github.com/radaniba/11019717
 def traceback(H, a, b):
-    i,j = np.unravel_index(np.argmax(H), H.shape)
-    t = i
+    j = len(b)
+    t = i = np.argmax(H[:,j])
     a_ = b_ = ''
     while i and j:
         curr = H[i, j]
@@ -39,13 +41,15 @@ def traceback(H, a, b):
         else:                           # substitution
             a_ += '*'
             b_ += '*'
-        if curr == 0:
-            break
+    while j:    # fill in remaining insertions
+        j -= 1
+        a_ += '-'
+        b_ += b[j]
     print(b_[::-1])
     print(a_[::-1])
     print('>>> ...' + a[i:t] + '|' + a[t:])
 
-def sw(a, b, match_score=1, gap_cost=1):
+def nw(a, b, match_score=1, gap_cost=1):
     start = time()
     a, b = a.lower(), b.lower()
     H = matrix(a, b, match_score, gap_cost)

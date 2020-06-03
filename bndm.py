@@ -1,5 +1,6 @@
 import numpy as np
 from time import sleep
+from time import time_ns as time
 
 # def set_bit(mask, bitnum):
 #     mask[bitnum >> 5] |= 1 << (bitnum & 31)
@@ -155,13 +156,14 @@ def bndm(txt, pat, k=0, verbose=0):
         i = shift_to
     return ''
 
-def align(txt, pat, verbose=0):
+def align(txt, pat, max_err=-1, verbose=0):
+    start = time()
     n = len(txt)
     m = len(pat)
     if m > n:
         pat,txt = txt,pat
         m,n = n,m
-    high = m
+    high = (m if max_err == -1 else max_err)
     low = 0
 
     # binary search on edit distance
@@ -177,6 +179,9 @@ def align(txt, pat, verbose=0):
             high,low = avg,low
     print('>>> ...' + \
         bndm(txt, pat, high, verbose+1))
+    end = time()
+    print(str(end-start) + ' ns elapsed')
+    print()
 
 def demo():
     print('>>> ...' + bndm('acggtacga' \
