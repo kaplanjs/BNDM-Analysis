@@ -15,6 +15,7 @@ def matrix(a, b, match_score=1, gap_cost=1):
 
 # https://gist.github.com/radaniba/11019717
 def traceback(H, a, b):
+    # pylint: disable=unbalanced-tuple-unpacking
     i,j = np.unravel_index(np.argmax(H), H.shape)
     t = i
     a_ = b_ = ''
