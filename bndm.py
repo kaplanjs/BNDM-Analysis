@@ -13,7 +13,7 @@ PLAIN = '\033[0m'
 def uline(string):
     return ULINE + string + PLAIN
 
-def reconstruct(states, masks, pat, txt, t):
+def reconstruct(states, masks, pat, txt, t, verbose):
     align_pat = ''
     align_txt = ''
     k = len(states[:,0])-1
@@ -53,17 +53,18 @@ def reconstruct(states, masks, pat, txt, t):
             i += 1      # pat char consumed
             j += 1      # txt char consumed
             continue
-    print(align_pat)
-    print(align_txt)
+    if verbose:
+        print(align_pat)
+        print(align_txt)
 
-def bndm(txt, pat, k=0, verbose=False):
-    if verbose and k:
+def bndm(txt, pat, k=0, verbose=0):
+    if verbose > 1 and k:
         print('Simulation currently not supported ' \
             + 'for k-approximate matching.')
         if(input('Press \'c\' to continue with ' \
             + 'simulation anyways, or any other ' \
             + 'key to continue without. ') != 'c'):
-            verbose = False
+            verbose = 1
 
     n = len(txt)
     m = len(pat)
@@ -79,14 +80,14 @@ def bndm(txt, pat, k=0, verbose=False):
         states[:,0] = [(1<<b)-1 for b in range(1,k+2)]
         j0 = shift_to = i+m-k
         j = shift_to-1
-        if verbose:
+        if verbose > 1:
             matchstr = np.array([' ']*m)
 
         while all_states[k] and j >= max(0,i-2*k):
             prev = all_states[0]
             all_states[0] &= masks[ord(txt[j])]
             all_states[0] &= (1<<m)-1
-            if verbose and k == 0:
+            if verbose > 1 and k == 0:
                 matchstr[np.array(list(format(states[k,j0-j],'0'+str(m)+'b')))=='1'] = txt[j]
                 print(' '*i + pat)
                 print(' '*i + ''.join(matchstr))
@@ -113,7 +114,7 @@ def bndm(txt, pat, k=0, verbose=False):
                 # curr = states[d+1,j0-j]
                 states[d+1,j0-j] = states[d+1,j0-j-1] & masks[ord(txt[j])]
                 states[d+1,j0-j] |= (states[d,j0-j-1] >> 1) | states[d,j0-j-1] | states[d,j0-j]
-                if verbose and d == k-1:
+                if verbose > 1 and d == k-1:
                     matchstr[np.array(list(format(states[k,j0-j],'0'+str(m)+'b')))=='1'] = txt[j]
                     print(' '*i + pat)
                     print(' '*i + ''.join(matchstr))
@@ -123,11 +124,11 @@ def bndm(txt, pat, k=0, verbose=False):
                 # prev = curr
 
             if states[k,j0-j] >> m:
-                reconstruct(states, masks, pat, txt[j:j0], j0-j)
+                reconstruct(states, masks, pat, txt[j:j0], j0-j, verbose)
                 return txt[j:]
             j -= 1
 
-        if verbose:
+        if verbose > 1:
             print(' '*shift_to + uline(pat[:j0-shift_to]) + pat[j0-shift_to:])
             print()
             print(' '*k + txt[:shift_to] + uline(txt[shift_to:j0]) + txt[j0:])
@@ -140,7 +141,7 @@ def demo():
         + 'tcatgcgagtcgtagcaggttgatgt' \
         + 'accggactgcacgctgatgctcgtag' \
         + 'tgctcgatagtcgtagctgatcgatg' \
-        + 'ctcgata', 'tagct', 0, True))
+        + 'ctcgata', 'tagct', 0, 2))
 
 def demo2():
     print('>>> ...' + bndm('ctgatgcat' \
@@ -148,4 +149,4 @@ def demo2():
         + 'cgcagagatgtcgcgaatcatgcaag' \
         + 'tcgcagcgtatacgcgcggatccgga' \
         + 'tcacgc', 'gactgatacgtatcga' \
-        + 'tcgata', 6, True))
+        + 'tcgata', 6, 2))
