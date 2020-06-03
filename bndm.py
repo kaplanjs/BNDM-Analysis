@@ -13,7 +13,7 @@ PLAIN = '\033[0m'
 def uline(string):
     return ULINE + string + PLAIN
 
-def reconstruct(states, masks, pat, txt, t, verbose):
+def reconstruct(states, masks, txt, pat, t, verbose):
     align_pat = ''
     align_txt = ''
     k = len(states[:,0])-1
@@ -142,7 +142,7 @@ def bndm(txt, pat, k=0, verbose=0):
                 # construct alignment from match,
                 # return text starting from match
                 # and use '|' to mark match end
-                reconstruct(states, masks, pat, txt[j:j0], j0-j, verbose)
+                reconstruct(states, masks, txt[j:j0], pat, j0-j, verbose)
                 return txt[j:j0] + '|' + txt[j0:]
             j -= 1
 
