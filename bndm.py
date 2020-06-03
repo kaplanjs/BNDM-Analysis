@@ -75,27 +75,36 @@ def bndm(txt, pat, k=0, verbose=0):
         masks[ord(c)] |= 1 << (m-i-1)
 
     i = 0
-    while i <= n-m+k:
+    while i <= n-m+k:   # window size m-k
+        # initially all 1s, matches prefixes
         all_states = np.full(k+1, (1<<m)-1, dtype=np.int64)
+        # only starts with 1, for complete matches
         states[:,0] = [(1<<b)-1 for b in range(1,k+2)]
+        # j0 marks end of window
+        # shift_to tracks start of next window
         j0 = shift_to = i+m-k
+        # j marks window cursor (scan end to start0)
         j = shift_to-1
         if verbose > 1:
             matchstr = np.array([' ']*m)
 
         while all_states[k] and j >= max(0,i-2*k):
-            prev = all_states[0]
-            all_states[0] &= masks[ord(txt[j])]
-            all_states[0] &= (1<<m)-1
+
+            # update all_states
+
+            prev = all_states[0]                # track state pre-updates
+            all_states[0] &= masks[ord(txt[j])] # screen matches
+            all_states[0] &= (1<<m)-1           # truncate
             if verbose > 1 and k == 0:
-                matchstr[np.array(list(format(states[k,j0-j],'0'+str(m)+'b')))=='1'] = txt[j]
+                # prefixes matched to pattern so far
+                matchstr[np.array(list(format(all_states[0,j0-j],'0'+str(m)+'b')))=='1'] = txt[j]
                 print(' '*i + pat)
                 print(' '*i + ''.join(matchstr))
                 print(' '*k + txt[:j] + uline(txt[j:j0]) + txt[j0:])
                 sleep(DELAY)
-            all_states[0] <<= 1
+            all_states[0] <<= 1                 # shift for next round
 
-            for d in range(k):
+            for d in range(k):                  # trickle down
                 curr = all_states[d+1]
                 all_states[d+1] &= masks[ord(txt[j])]
                 all_states[d+1] |= (prev >> 1) | prev | all_states[d]
@@ -104,7 +113,12 @@ def bndm(txt, pat, k=0, verbose=0):
                 prev = curr
 
             if all_states[k] >> m and j < shift_to:
-                    shift_to = max(i+1,j)
+                # shift to matching prefix,
+                # but always move at least 1
+                shift_to = max(i+1,j)
+
+            # repeat updates on states, but
+            # track each step for alignment
 
             # prev = states[0,0]
             states[0,j0-j] = states[0,j0-j-1] & masks[ord(txt[j])]
@@ -115,6 +129,7 @@ def bndm(txt, pat, k=0, verbose=0):
                 states[d+1,j0-j] = states[d+1,j0-j-1] & masks[ord(txt[j])]
                 states[d+1,j0-j] |= (states[d,j0-j-1] >> 1) | states[d,j0-j-1] | states[d,j0-j]
                 if verbose > 1 and d == k-1:
+                    # state matched to pattern so far
                     matchstr[np.array(list(format(states[k,j0-j],'0'+str(m)+'b')))=='1'] = txt[j]
                     print(' '*i + pat)
                     print(' '*i + ''.join(matchstr))
@@ -124,17 +139,44 @@ def bndm(txt, pat, k=0, verbose=0):
                 # prev = curr
 
             if states[k,j0-j] >> m:
+                # construct alignment from match,
+                # return text starting from match
+                # and use '|' to mark match end
                 reconstruct(states, masks, pat, txt[j:j0], j0-j, verbose)
-                return txt[j:]
+                return txt[j:j0] + '|' + txt[j0:]
             j -= 1
 
         if verbose > 1:
+            # prefix alignment for shift
             print(' '*shift_to + uline(pat[:j0-shift_to]) + pat[j0-shift_to:])
             print()
             print(' '*k + txt[:shift_to] + uline(txt[shift_to:j0]) + txt[j0:])
             sleep(DELAY)
         i = shift_to
     return ''
+
+def align(txt, pat, verbose=0):
+    n = len(txt)
+    m = len(pat)
+    if m > n:
+        pat,txt = txt,pat
+        m,n = n,m
+    high = m
+    low = 0
+
+    # binary search on edit distance
+    # for optimal alignment
+    while high > low:
+        avg = int((high+low)/2)
+        if bndm(txt, pat, avg) == '':
+            if avg == low:
+                high,low = high,high
+            else:
+                high,low = high,avg
+        else:
+            high,low = avg,low
+    print('>>> ...' + \
+        bndm(txt, pat, high, verbose+1))
 
 def demo():
     print('>>> ...' + bndm('acggtacga' \
