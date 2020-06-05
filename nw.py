@@ -9,14 +9,14 @@ def matrix(a, b, match_score=1, gap_cost=1):
     H[:,0] = 0
 
     for i, j in itertools.product(range(1, len(a)+1), range(1, len(b)+1)):
-        match = H[i - 1, j - 1] - (0 if a[i - 1] == b[j - 1] else match_score)
-        delete = H[i - 1, j] - gap_cost
-        insert = H[i, j - 1] - gap_cost
+        match  = H[i - 1, j - 1] - (0 if a[i - 1] == b[j - 1] else match_score)
+        delete = H[i - 1, j]     - gap_cost
+        insert = H[i, j - 1]     - gap_cost
         H[i, j] = max(match, delete, insert)
     return H
 
 # https://gist.github.com/radaniba/11019717
-def traceback(H, a, b):
+def traceback(H, a, b, verbose=0):
     j = len(b)
     t = i = np.argmax(H[:,j])
     a_ = b_ = ''
@@ -33,27 +33,30 @@ def traceback(H, a, b):
         elif left >= max(diag, up):     # deletion
             a_ += '-'
             b_ += b[j]
-            i += 1
+            i  += 1
         elif up >= diag:                # insertion
             a_ += a[i]
             b_ += '-'
-            j += 1
+            j  += 1
         else:                           # substitution
             a_ += '*'
             b_ += '*'
     while j:    # fill in remaining insertions
-        j -= 1
+        j  -= 1
         a_ += '-'
         b_ += b[j]
-    print(b_[::-1])
-    print(a_[::-1])
-    print('>>> ...' + a[i:t] + '|' + a[t:])
+    if verbose:
+        print(b_[::-1])
+        print(a_[::-1])
+        print('>>> ...' + a[i:t] + '|' + a[t:])
 
-def nw(a, b, match_score=1, gap_cost=1):
+def nw(a, b, match_score=1, gap_cost=1, verbose=0):
     start = time()
     a, b = a.lower(), b.lower()
     H = matrix(a, b, match_score, gap_cost)
-    traceback(H, a, b)
+    traceback(H, a, b, verbose)
     end = time()
-    print(str(end-start) + ' ns elapsed')
-    print()
+    if verbose:
+        print(str(end-start) + ' ns elapsed')
+        print()
+    return end-start

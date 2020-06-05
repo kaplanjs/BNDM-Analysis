@@ -17,37 +17,35 @@ def uline(string):
 def reconstruct(states, masks, txt, pat, t, verbose):
     align_pat = ''
     align_txt = ''
-    k = len(states[:,0])-1
     m = len(pat)
-    # available errors
-    d = np.argmax([states[d,t] >> m for d in range(k+1)])
-    pos = 1 << (m-1)    # state position, align with pat (i)
-    i = 0               # pat position
-    j = 0               # txt position
+    k = len(states[:,0])-1  # available errors
+    pos = 1 << (m-1)        # state position, align with pat (i)
+    i = 0                   # pat position
+    j = 0                   # txt position
     while j < t or i < m:
-        if d > 0:
-            if pos & states[d-1,t-j-1]:         # substitution
+        if k > 0:
+            if pos & states[k-1,t-j-1]:         # substitution
                 align_pat += '*'
                 align_txt += '*'
                 pos >>= 1   # align state with pat (i)
                 i += 1      # pat char consumed
                 j += 1      # txt char consumed
-                d -= 1      # error used
+                k -= 1      # error used
                 continue
-            if pos & (states[d-1,t-j-1] >> 1):  # insertion
+            if pos & (states[k-1,t-j-1] >> 1):  # insertion
                 align_pat += '-'
                 align_txt += txt[j]
                 j += 1      # txt char consumed
-                d -= 1      # error used
+                k -= 1      # error used
                 continue
-            if pos & states[d-1,t-j]:           # deletion
+            if pos & states[k-1,t-j]:           # deletion
                 align_pat += pat[i]
                 align_txt += '-'
                 pos >>= 1   # align state with pat (i)
                 i += 1      # pat char consumed
-                d -= 1      # error used
+                k -= 1      # error used
                 continue
-        if pos & states[d,t-j-1] & masks[ord(txt[j])]:  # match
+        if pos & states[k,t-j-1] & masks[ord(txt[j])]:  # match
             align_pat += pat[i]
             align_txt += txt[j]
             pos >>= 1   # align state with pat (i)
@@ -160,10 +158,11 @@ def align(txt, pat, max_err=-1, verbose=0):
     start = time()
     n = len(txt)
     m = len(pat)
+    s = np.unique(list(txt+pat)).size
     if m > n:
         pat,txt = txt,pat
         m,n = n,m
-    high = (m if max_err == -1 else max_err)
+    high = (int(m/(2+np.log2(m)/np.log2(s))) if max_err == -1 else max_err)
     low = 0
 
     # binary search on edit distance
@@ -177,11 +176,17 @@ def align(txt, pat, max_err=-1, verbose=0):
                 high,low = high,avg
         else:
             high,low = avg,low
-    print('>>> ...' + \
-        bndm(txt, pat, high, verbose+1))
+    if bndm(txt, pat, high, 0) == '':
+        print('Alignment not found.')
+    if high > m/(2+np.log2(m)/np.log2(s)):
+        print('Runtime bound exceeded.')
     end = time()
-    print(str(end-start) + ' ns elapsed')
-    print()
+    if verbose:
+        print('>>> ...' + \
+            bndm(txt, pat, high, verbose))
+        print(str(end-start) + ' ns elapsed')
+        print()
+    return end-start
 
 def demo():
     print('>>> ...' + bndm('acggtacga' \
