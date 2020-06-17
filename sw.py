@@ -19,6 +19,7 @@ def traceback(H, a, b, verbose=0):
     i,j = np.unravel_index(np.argmax(H), H.shape)
     t = i
     a_ = b_ = ''
+    k = 0
     while i and j:
         curr = H[i, j]
         diag = H[i-1, j-1]
@@ -26,9 +27,11 @@ def traceback(H, a, b, verbose=0):
         left = H[i, j-1]
         i -= 1
         j -= 1
+        k += 1
         if curr >= max(diag, up, left): # match
             a_ += a[i]
             b_ += b[j]
+            k  -= 1
         elif left >= max(diag, up):     # deletion
             a_ += '-'
             b_ += b[j]
@@ -46,14 +49,15 @@ def traceback(H, a, b, verbose=0):
         print(b_[::-1])
         print(a_[::-1])
         print('>>> ...' + a[i:t] + '|' + a[t:])
+    return k
 
 def sw(a, b, match_score=1, gap_cost=1, verbose=0):
     start = time()
     a, b = a.lower(), b.lower()
     H = matrix(a, b, match_score, gap_cost)
-    traceback(H, a, b, verbose)
+    k = traceback(H, a, b, verbose)
     end = time()
     if verbose:
         print(str(end-start) + ' ns elapsed')
         print()
-    return end-start
+    return end-start,k

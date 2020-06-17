@@ -1,18 +1,23 @@
 import numpy as np
 from time import sleep
 from time import time_ns as time
+from nw import nw
 
 # def set_bit(mask, bitnum):
 #     mask[bitnum >> 5] |= 1 << (bitnum & 31)
 #     return mask
 
-DELAY = 0.1
+DELAY = 0.2
 
-ULINE = '\033[4m'
-PLAIN = '\033[0m'
+ULINE  = '\033[4m'
+HLIGHT = '\033[0;30;47m'
+PLAIN  = '\033[0m'
 
 def uline(string):
     return ULINE + string + PLAIN
+
+def hlight(string):
+    return HLIGHT + string + PLAIN
 
 def reconstruct(states, masks, txt, pat, t, verbose):
     align_pat = ''
@@ -96,10 +101,10 @@ def bndm(txt, pat, k=0, verbose=0):
             all_states[0] &= (1<<m)-1           # truncate
             if verbose > 1 and k == 0:
                 # prefixes matched to pattern so far
-                matchstr[np.array(list(format(all_states[0,j0-j],'0'+str(m)+'b')))=='1'] = txt[j]
+                matchstr[np.array(list(format(all_states[0],'0'+str(m)+'b')))=='1'] = txt[j]
                 print(' '*i + pat)
                 print(' '*i + ''.join(matchstr))
-                print(' '*k + txt[:j] + uline(txt[j:j0]) + txt[j0:])
+                print(' '*k + txt[:j] + hlight(txt[j:j0]) + txt[j0:])
                 sleep(DELAY)
             all_states[0] <<= 1                 # shift for next round
 
@@ -132,7 +137,7 @@ def bndm(txt, pat, k=0, verbose=0):
                     matchstr[np.array(list(format(states[k,j0-j],'0'+str(m)+'b')))=='1'] = txt[j]
                     print(' '*i + pat)
                     print(' '*i + ''.join(matchstr))
-                    print(' '*k + txt[:j] + uline(txt[j:j0]) + txt[j0:])
+                    print(' '*k + txt[:j] + hlight(txt[j:j0]) + txt[j0:])
                     sleep(DELAY)
                 states[d+1,j0-j] <<= 1
                 # prev = curr
@@ -147,10 +152,10 @@ def bndm(txt, pat, k=0, verbose=0):
 
         if verbose > 1:
             # prefix alignment for shift
-            print(' '*shift_to + uline(pat[:j0-shift_to]) + pat[j0-shift_to:])
+            print(' '*shift_to + hlight(pat[:j0-shift_to]) + pat[j0-shift_to:])
             print()
-            print(' '*k + txt[:shift_to] + uline(txt[shift_to:j0]) + txt[j0:])
-            sleep(DELAY)
+            print(' '*k + txt[:shift_to] + hlight(txt[shift_to:j0]) + txt[j0:])
+            sleep(1.5*DELAY)
         i = shift_to
     return ''
 
@@ -177,7 +182,10 @@ def align(txt, pat, max_err=-1, verbose=0):
         else:
             high,low = avg,low
     if bndm(txt, pat, high, 0) == '':
-        print('Alignment not found.')
+        if nw(txt, pat)[1] < m/3:
+            print('Alignment not found.')
+    else:
+        print('Alignment found!.')
     if high > m/(2+np.log2(m)/np.log2(s)):
         print('Runtime bound exceeded.')
     end = time()

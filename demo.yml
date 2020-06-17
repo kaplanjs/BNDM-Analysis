@@ -1,0 +1,533 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: powershell.exe
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: C:\Users\User\Documents\Soph Year\Spring\CS166\proj
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 138
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 11
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 620
+    content: "\e[2J\e[?25l\e[m\e[H\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\e[H\e]0;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\a\e[?25h"
+  - delay: 8
+    content: "\e[?25lWindows PowerShell\e[42X\e[42C\r\nCopyright (C) Microsoft Corporation. All rights reserved.   \r\n\e[60X\e[60C\r\nTry the new cross-platform PowerShell https://aka.ms/pscore6\e[6;1H\e[?25h"
+  - delay: 1043
+    content: "\e[?25lLoading personal and system profiles took 885ms.\r\n\e[?25h"
+  - delay: 18
+    content: "\e[?25l(base) \e[?25h"
+  - delay: 20
+    content: "\e[?25lPS C:\\Users\\User\\Documents\\Soph Year\\Spring\\CS166\\proj> \e[?25h"
+  - delay: 237
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[93mp"
+  - delay: 64
+    content: "\e[?25l\e[m\e[?25h"
+  - delay: 9
+    content: "\e[?25l\e[93m\bpy\e[?25h"
+  - delay: 185
+    content: "\e[?25l\e[m\r\n\e[?25h"
+  - delay: 10
+    content: "\e[?25l\e[HWindows PowerShell\e[120X\e[120C\r\nCopyright (C) Microsoft Corporation. All rights reserved.\e[81X\e[81C\r\n\e[138X\e[138C\r\nTry the new cross-platform PowerShell https://aka.ms/pscore6\e[78X\e[78C\r\n\e[138X\e[138C\r\nLoading personal and system profiles took 885ms.\e[90X\e[90C\r\n(base) PS C:\\Users\\User\\Documents\\Soph Year\\Spring\\CS166\\proj> \e[93mpy\e[m\e[73X\e[73C\r\n\e[138X\e[138C\r\n\e[138X\e[138C\r\n\e[138X\e[138C\r\n\e[138X\e[138C\e[8;1H\e[?25h"
+  - delay: 45
+    content: P
+  - delay: 8
+    content: "\e[?25l\rPython 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32\r\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\e[30X\e[30C\r\n\e[?25h"
+  - delay: 60
+    content: "\e[?25l>>> \e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>>\e[135X\e[135C\r\n\e[138X\e[138C\e[10;5H\e[?25h"
+  - delay: 198
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> f\e[133X\e[133C\r\n\e[138X\e[138C\e[10;6H\e[?25h"
+  - delay: 91
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> fr\e[132X\e[132C\r\n\e[138X\e[138C\e[10;7H\e[?25h"
+  - delay: 82
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> fro\e[131X\e[131C\r\n\e[138X\e[138C\e[10;8H\e[?25h"
+  - delay: 34
+    content: "\e[?25l\e[?25h"
+  - delay: 8
+    content: "\e[?25l\r>>> from\e[130X\e[130C\r\n\e[138X\e[138C\e[10;9H\e[?25h"
+  - delay: 123
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from\e[130X\e[130C\r\n\e[138X\e[138C\e[10;10H\e[?25h"
+  - delay: 161
+    content: "\e[?25l\e[?25h"
+  - delay: 8
+    content: "\e[?25l\r>>> from b\e[128X\e[128C\r\n\e[138X\e[138C\e[10;11H\e[?25h"
+  - delay: 175
+    content: "\e[?25l\e[?25h"
+  - delay: 10
+    content: "\e[?25l\r>>> from bn\e[127X\e[127C\r\n\e[138X\e[138C\e[10;12H\e[?25h"
+  - delay: 101
+    content: "\e[?25l\e[?25h"
+  - delay: 10
+    content: "\e[?25l\r>>> from bnd\e[126X\e[126C\r\n\e[138X\e[138C\e[10;13H\e[?25h"
+  - delay: 92
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm\e[125X\e[125C\r\n\e[138X\e[138C\e[10;14H\e[?25h"
+  - delay: 110
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm\e[125X\e[125C\r\n\e[138X\e[138C\e[10;15H\e[?25h"
+  - delay: 163
+    content: "\e[?25l\e[?25h"
+  - delay: 10
+    content: "\e[?25l\r>>> from bndm i\e[123X\e[123C\r\n\e[138X\e[138C\e[10;16H\e[?25h"
+  - delay: 77
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm im\e[122X\e[122C\r\n\e[138X\e[138C\e[10;17H\e[?25h"
+  - delay: 148
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm imp\e[121X\e[121C\r\n\e[138X\e[138C\e[10;18H\e[?25h"
+  - delay: 151
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm impo\e[120X\e[120C\r\n\e[138X\e[138C\e[10;19H\e[?25h"
+  - delay: 87
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm impor\e[119X\e[119C\r\n\e[138X\e[138C\e[10;20H\e[?25h"
+  - delay: 102
+    content: "\e[?25l\e[?25h"
+  - delay: 10
+    content: "\e[?25l\r>>> from bndm import\e[118X\e[118C\r\n\e[138X\e[138C\e[10;21H\e[?25h"
+  - delay: 113
+    content: "\e[?25l\e[?25h"
+  - delay: 10
+    content: "\e[?25l\r>>> from bndm import\e[118X\e[118C\r\n\e[138X\e[138C\e[10;22H\e[?25h"
+  - delay: 119
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm import d\e[116X\e[116C\r\n\e[138X\e[138C\e[10;23H\e[?25h"
+  - delay: 153
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm import de\e[115X\e[115C\r\n\e[138X\e[138C\e[10;24H\e[?25h"
+  - delay: 89
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm import dem\e[114X\e[114C\r\n\e[138X\e[138C\e[10;25H\e[?25h"
+  - delay: 77
+    content: "\e[?25l\e[?25h"
+  - delay: 8
+    content: "\e[?25l\r>>> from bndm import demo\e[113X\e[113C\r\n\e[138X\e[138C\e[10;26H\e[?25h"
+  - delay: 179
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> from bndm import demo\e[113X\e[113C\r\n\e[138X\e[138C\r\e[?25h"
+  - delay: 104
+    content: "\e[?25l>>> \e[?25h"
+  - delay: 9
+    content: "\e[?25l\e[HCopyright (C) Microsoft Corporation. All rights reserved.\e[81X\e[81C\r\n\e[138X\e[138C\r\nTry the new cross-platform PowerShell https://aka.ms/pscore6\e[78X\e[78C\r\n\e[138X\e[138C\r\nLoading personal and system profiles took 885ms.\e[90X\e[90C\r\n(base) PS C:\\Users\\User\\Documents\\Soph Year\\Spring\\CS166\\proj> \e[93mpy\e[m\e[73X\e[73C\r\nPython 3.7.6 (default, Jan  8 2020, 20:23:39) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32\e[38X\e[38C\r\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\e[68X\e[68C\r\n>>> from bndm import demo\e[113X\e[113C\r\n>>>\e[135X\e[135C\r\n\e[138X\e[138C\e[10;5H\e[?25h"
+  - delay: 140
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> d\e[133X\e[133C\r\n\e[138X\e[138C\e[10;6H\e[?25h"
+  - delay: 136
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> de\e[132X\e[132C\r\n\e[138X\e[138C\e[10;7H\e[?25h"
+  - delay: 80
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> dem\e[131X\e[131C\r\n\e[138X\e[138C\e[10;8H\e[?25h"
+  - delay: 81
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> demo\e[130X\e[130C\r\n\e[138X\e[138C\e[10;9H\e[?25h"
+  - delay: 210
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[?25l\r>>> demo(\e[129X\e[129C\r\n\e[138X\e[138C\e[10;10H\e[?25h"
+  - delay: 127
+    content: "\e[?25l\e[?25h"
+  - delay: 10
+    content: "\e[?25l\r>>> demo()\e[128X\e[128C\r\n\e[138X\e[138C\e[10;11H\e[?25h"
+  - delay: 194
+    content: "\e[?25l\e[?25h\e[?25l\r>>> demo()\e[128X\e[128C\r\ntagct\e[133X\e[133C\r\e[?25h\e[?25l\nt   t\e[133X\e[133C\r\e[?25h\e[?25l\nacgg\e[0;30;47mt\e[0macgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 196
+    content: "\e[?25ltagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25lt   t\r\e[?25h\e[?25l\nacg\e[0;30;47mgt\e[0macgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l    \e[0;30;47mt\e[0magct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacgg\e[0;30;47mt\e[0macgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 295
+    content: "\e[?25l    tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l     a   \r\e[?25h\e[?25l\nacggtacg\e[0;30;47ma\e[0mtcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l    tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l     a   \r\e[?25h\e[?25l\nacggtac\e[0;30;47mga\e[0mtcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 192
+    content: "\e[?25l         \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacga\e[0;30;47m\e[0mtcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l         tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l           g  \r\e[?25h\e[?25l\nacggtacgatcat\e[0;30;47mg\e[0mcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l         tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l           g  \r\e[?25h\e[?25l\nacggtacgatca\e[0;30;47mtg\e[0mcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l              \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatg\e[0;30;47m\e[0mcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l              tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l              t   t\r\e[?25h\e[?25l\nacggtacgatcatgcgag\e[0;30;47mt\e[0mcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l              tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l              t   t\r\e[?25h\e[?25l\nacggtacgatcatgcga\e[0;30;47mgt\e[0mcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                  \e[0;30;47mt\e[0magct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgag\e[0;30;47mt\e[0mcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 295
+    content: "\e[?25l                  tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                   a   \r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\nacggtacgatcatgcgagtcgt\e[0;30;47ma\e[0mgcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 192
+    content: "\e[?25l                  tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                  ta   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcg\e[0;30;47mta\e[0mgcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 9
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 192
+    content: "\e[?25l                  tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                  ta   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtc\e[0;30;47mgta\e[0mgcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 192
+    content: "\e[?25l                     \e[0;30;47mta\e[0mgct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25lacggtacgatcatgcgagtcg\e[0;30;47mta\e[0mgcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\r\e[?25h"
+  - delay: 9
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 292
+    content: "\e[?25l                     tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                      a   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagc\e[0;30;47ma\e[0mggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                     tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                      a   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtag\e[0;30;47mca\e[0mggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 192
+    content: "\e[?25l                          \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagca\e[0;30;47m\e[0mggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 9
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                            g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggtt\e[0;30;47mg\e[0matgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                            g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggt\e[0;30;47mtg\e[0matgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                               \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttg\e[0;30;47m\e[0matgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 293
+    content: "\e[?25l                               tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                a   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgt\e[0;30;47ma\e[0mccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                               tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                               ta   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatg\e[0;30;47mta\e[0mccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                               tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                               ta   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgat\e[0;30;47mgta\e[0mccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 196
+    content: "\e[?25l                                  \e[0;30;47mta\e[0mgct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatg\e[0;30;47mta\e[0mccggactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 293
+    content: "\e[?25l                                  tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                    g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtacc\e[0;30;47mg\e[0mgactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                  tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                    g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtac\e[0;30;47mcg\e[0mgactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                       \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccg\e[0;30;47m\e[0mgactgcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                                       tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                         g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggact\e[0;30;47mg\e[0mcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 13
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 187
+    content: "\e[?25l                                       tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                         g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggac\e[0;30;47mtg\e[0mcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                            \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactg\e[0;30;47m\e[0mcacgctgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 295
+    content: "\e[?25l                                            tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                               c \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacg\e[0;30;47mc\e[0mtgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 192
+    content: "\e[?25l                                            tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                              gc \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcac\e[0;30;47mgc\e[0mtgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 9
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 192
+    content: "\e[?25l                                            tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                              gc \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgca\e[0;30;47mcgc\e[0mtgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                                 \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgc\e[0;30;47m\e[0mtgatgctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                                                 tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                   g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgat\e[0;30;47mg\e[0mctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                 tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                   g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctga\e[0;30;47mtg\e[0mctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                                      \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatg\e[0;30;47m\e[0mctcgtagtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                                                      tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                      t   t\r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcg\e[0;30;47mt\e[0magtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                                      tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                      t   t\r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctc\e[0;30;47mgt\e[0magtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                          \e[0;30;47mt\e[0magct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcg\e[0;30;47mt\e[0magtgctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                                                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                            g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagt\e[0;30;47mg\e[0mctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                            g  \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtag\e[0;30;47mtg\e[0mctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                               \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtg\e[0;30;47m\e[0mctcgatagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                                                               tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                a   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcg\e[0;30;47ma\e[0mtagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                               tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                a   \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctc\e[0;30;47mga\e[0mtagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                                    \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcga\e[0;30;47m\e[0mtagtcgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                                                                    tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                       c \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagt\e[0;30;47mc\e[0mgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                                    tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                       c \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatag\e[0;30;47mtc\e[0mgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 195
+    content: "\e[?25l                                                                         \e[0;30;47m\e[0mtagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h"
+  - delay: 5
+    content: "\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtc\e[0;30;47m\e[0mgtagctgatcgatgctcgata\e[30X\e[30C\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 295
+    content: "\e[?25l                                                                         tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                            c \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtag\e[0;30;47mc\e[0mtgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                                         tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                           gc \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgta\e[0;30;47mgc\e[0mtgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                                                         tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                          agc \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgt\e[0;30;47magc\e[0mtgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                                         tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                         tagc \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcg\e[0;30;47mtagc\e[0mtgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 195
+    content: "\e[?25l                                                                         tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                         tagc \r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtc\e[0;30;47mgtagc\e[0mtgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                                          \e[0;30;47mtagc\e[0mt\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcg\e[0;30;47mtagc\e[0mtgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 294
+    content: "\e[?25l                                                                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                          t   t\r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtagc\e[0;30;47mt\e[0mgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                                                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                          t  ct\r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgtag\e[0;30;47mct\e[0mgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 6
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25l                                                                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                          t gct\r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgta\e[0;30;47mgct\e[0mgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 16
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 185
+    content: "\e[?25l                                                                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                          tagct\r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgt\e[0;30;47magct\e[0mgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 193
+    content: "\e[?25l                                                                          tagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25l                                                                          tagct\r\e[?25h\e[?25l\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcg\e[0;30;47mtagct\e[0mgatcgatgctcgata\e[30X\e[30C\r\e[?25h"
+  - delay: 7
+    content: "\e[?25l\n\e[138X\e[138C\r\e[?25h"
+  - delay: 194
+    content: "\e[?25ltagct\r\e[?25h\e[?25l\n\e[138X\e[138C\r\e[?25h\e[?25ltagct\r\e[?25h\e[?25l\n>>> ...tagct|gatcgatgctcgata\e[110X\e[110C\r\e[?25h"
+  - delay: 26
+    content: "\e[?25l\n\e[H                                                                          tagct\e[59X\e[59C\r\n                                                                          tagct\e[59X\e[59C\r\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgt\e[0;30;47magct\e[0mgatcgatgctcgata\e[30X\e[30C\r\n                                                                          tagct\e[59X\e[59C\r\n                                                                          tagct\e[59X\e[59C\r\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcg\e[0;30;47mtagct\e[0mgatcgatgctcgata\e[30X\e[30C\r\ntagct\e[133X\e[133C\r\ntagct\e[133X\e[133C\r\n>>> ...tagct|gatcgatgctcgata\e[110X\e[110C\r\n>>>\e[135X\e[135C\r\n\e[138X\e[138C\e[?25h\e[?25l\e[11;5H\e[134X\e[134C\e[10;5H\e[?25h"
+  - delay: 694
+    content: "\e[?25l\r\n\e[?25h"
+  - delay: 78
+    content: "\e[?25l\e[H                                                                          tagct\e[59X\e[59C\r\n                                                                          tagct\e[59X\e[59C\r\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgt\e[0;30;47magct\e[0mgatcgatgctcgata\e[30X\e[30C\r\n                                                                          tagct\e[59X\e[59C\r\n                                                                          tagct\e[59X\e[59C\r\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcg\e[0;30;47mtagct\e[0mgatcgatgctcgata\e[30X\e[30C\r\ntagct\e[133X\e[133C\r\ntagct\e[133X\e[133C\r\n>>> ...tagct|gatcgatgctcgata\e[110X\e[110C\r\n>>>\e[135X\e[135C\r\n\e[138X\e[138C\r\e[?25h"
+  - delay: 8
+    content: "\e[?25l(base) PS C:\\Users\\User\\Documents\\Soph Year\\Spring\\CS166\\proj> \e[?25h"
+  - delay: 534
+    content: "\e[?25l\e[?25h"
+  - delay: 9
+    content: "\e[93me"
+  - delay: 226
+    content: "\e[?25l\e[m\e[?25h"
+  - delay: 9
+    content: "\e[?25l\e[93m\bex\e[?25h"
+  - delay: 133
+    content: "\e[?25l\e[m\e[?25h"
+  - delay: 9
+    content: "\e[?25l\e[93m\e[11;64Hexi\e[?25h"
+  - delay: 79
+    content: "\e[?25l\e[m\e[?25h"
+  - delay: 9
+    content: "\e[?25l\e[92m\e[11;64Hexit\e[?25h"
+  - delay: 126
+    content: "\e[?25l\e[m\e[H                                                                          tagct\e[59X\e[59C\r\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcgt\e[0;30;47magct\e[0mgatcgatgctcgata\e[30X\e[30C\r\n                                                                          tagct\e[59X\e[59C\r\n                                                                          tagct\e[59X\e[59C\r\nacggtacgatcatgcgagtcgtagcaggttgatgtaccggactgcacgctgatgctcgtagtgctcgatagtcg\e[0;30;47mtagct\e[0mgatcgatgctcgata\e[30X\e[30C\r\ntagct\e[133X\e[133C\r\ntagct\e[133X\e[133C\r\n>>> ...tagct|gatcgatgctcgata\e[110X\e[110C\r\n>>>\e[135X\e[135C\r\n(base) PS C:\\Users\\User\\Documents\\Soph Year\\Spring\\CS166\\proj> \e[92mexit\e[m\e[71X\e[71C\r\n\e[138X\e[138C\e[11;68H\e[?25h"
+  - delay: 8
+    content: "\e[?25l\r\e[?25h"
