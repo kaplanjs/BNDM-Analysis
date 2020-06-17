@@ -32,8 +32,8 @@ errors as possible (with a log fraction threshold
 on the number of allowed errors).
 @returns: time taken in ns
 
-Verbosity settings can be set to 0) no output,
-1) output result, 2) display visualization.
+Verbosity settings can be set to 0) no output, 1)
+output result, 2) display visualization.
 
 ## sw.py
 
