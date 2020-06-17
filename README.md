@@ -29,7 +29,7 @@ bndm() finds a match and generates the alignment.
 align() finds the optimal alignment of the entire
 pattern to a portion of the text with as few
 errors as possible (with a log fraction threshold
-on the number of allowed errors).
+on the number of allowed errors).\
 @returns: time taken in ns
 
 Verbosity settings can be set to 0) no output, 1)
@@ -43,7 +43,7 @@ the resulting optimal alignment respectively.
 
 sw() is a wrapper function that gets the optimal
 alignment of any portion of each text using the
-Smith-Waterman algorithm.
+Smith-Waterman algorithm.\
 @returns: time taken in ns, number of errors
 
 ## nw.py
@@ -54,7 +54,7 @@ the resulting optimal alignment respectively.
 
 nw() is a wrapper function that gets the optimal
 alignment of the entirety of each text using the
-Needleman-Wunsch algorithm.
+Needleman-Wunsch algorithm.\
 @returns: time taken in ns, number of errors
 
 ## analysis.py
